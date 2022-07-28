@@ -19,7 +19,7 @@ import Icons from "unplugin-icons/vite";
 // 这个结合 unplugin-vue-components 使用
 import IconsResolver from "unplugin-icons/resolver";
 
-const pluginList = [
+export default [
   vue(),
   Icons({
     autoInstall: true,
@@ -86,6 +86,4 @@ const pluginList = [
       ElementPlusResolver(),
     ],
   }),
-];
-
-export { pluginList };
+] as any;

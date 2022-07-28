@@ -1,10 +1,11 @@
 <template>
   <div class="father_box">
-    红色是 father组件
 
-    父的一个ref值 {{ count }}
+    <div>father组件 红色边框</div>
 
-    <Son class="son_class" />
+    <div>father的一个ref值count {{ count }}</div>
+
+    <Son class="son_class" @count-add="countAdd" :count="count" />
 
   </div>
 </template>
@@ -13,9 +14,14 @@
 
 const count = ref<number>(0)
 
+const countAdd = (num: number) => {
+  count.value += num
+}
+
 </script> 
 
 <style lang='less' scoped>
+// 父元素的盒子css
 .father_box {
   border: 1px solid red;
   display: flex;
@@ -23,7 +29,7 @@ const count = ref<number>(0)
   place-items: center;
 }
 
-
+// 传给子元素的css
 .son_class {
   background-color: yellow;
 }

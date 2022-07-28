@@ -1,9 +1,11 @@
 {
+  //编译器选项
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@c/*": ["./src/components/*"]
+      "@c/*": ["./src/components/*"],
+      "@h/*": ["./src/hooks/*"]
     },
     "target": "ESNext",
     "useDefineForClassFields": true,
@@ -16,13 +18,12 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
+    // 跳过所有.d.ts文件的类型检查
     "skipLibCheck": true,
-    //如果您使用 Volar，请在 tsconfig.json 中通过 compilerOptions.type 指定全局组件类型。
+    // 如果您使用 Volar，请在 tsconfig.json 中通过 compilerOptions.type 指定全局组件类型。
     "types": ["element-plus/global"]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", 
-  "auto-imports.d.ts", "config/*.ts"],
-  "exclude": ["node_modules"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "auto-imports.d.ts", "config/*.ts"],
   "references": [
     {
       "path": "./tsconfig.node.json"
