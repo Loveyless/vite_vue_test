@@ -1,6 +1,8 @@
 <template>
   <div class="father_box">
 
+    <h1>这个组件展示了传值 attr 触发事件</h1>
+
     <div>father组件 红色边框</div>
 
     <div>father的一个ref值count {{ count }}</div>

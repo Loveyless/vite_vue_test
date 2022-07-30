@@ -4,6 +4,9 @@ import App from "./App.vue";
 
 import router from "./router/index";
 
+//unocss
+import "uno.css";
+
 // 如果您正在使用CDN引入，请删除下面一行。
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 

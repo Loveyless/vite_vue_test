@@ -17,8 +17,10 @@ declare module '@vue/runtime-core' {
     Father: typeof import('./src/components/FatherSon/Father.vue')['default']
     Header: typeof import('./src/layout/Header.vue')['default']
     Home: typeof import('./src/components/home/index.vue')['default']
+    MyImg: typeof import('./src/hooks/MyImg.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ShowImages: typeof import('./src/components/ShowImages/index.vue')['default']
     Son: typeof import('./src/components/FatherSon/Son.vue')['default']
     Undefined: typeof import('./src/layout/index.vue')['default']
   }
