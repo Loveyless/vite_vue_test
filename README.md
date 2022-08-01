@@ -18,6 +18,7 @@ vite-plugin-compress - 压缩你的包 + 资产。/ vite-plugin-compression - �
 vite-plugin-banner - 在每个生成的块的顶部添加一个横幅。
 >vite-plugin-vue-docs - 分析 vue 组件以自动生成可预览文档。
 vite-plugin-importus - 模块化导入插件，兼容 antd、lodash、material-ui 等。
+>vite-plugin-cdn-import CDN插件
 
 
 **变行金刚？**
