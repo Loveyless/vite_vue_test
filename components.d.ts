@@ -15,13 +15,16 @@ declare module '@vue/runtime-core' {
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     Father: typeof import('./src/components/FatherSon/Father.vue')['default']
+    FatherSlot: typeof import('./src/components/Slot/FatherSlot.vue')['default']
     Header: typeof import('./src/layout/Header.vue')['default']
-    Home: typeof import('./src/components/home/index.vue')['default']
+    Home: typeof import('./src/components/Home/index.vue')['default']
+    MouseTracker: typeof import('./src/components/Slot/MouseTracker.vue')['default']
     MyImg: typeof import('./src/hooks/MyImg.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ShowImages: typeof import('./src/components/ShowImages/index.vue')['default']
     Son: typeof import('./src/components/FatherSon/Son.vue')['default']
+    SonSlot: typeof import('./src/components/Slot/SonSlot.vue')['default']
     Undefined: typeof import('./src/layout/index.vue')['default']
   }
 }

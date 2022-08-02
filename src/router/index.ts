@@ -23,9 +23,10 @@ const routes: Array<RouteRecordRaw> = [
     component: Layout,
     redirect: "/layout/home",
     children: [
-      { path: "home", name: "主页", component: () => import("@c/home/index.vue") },
+      { path: "home", name: "主页", component: () => import("@c/Home/index.vue") },
       { path: "father_son", name: "父子之间", component: () => import("@c/FatherSon/Father.vue") },
       { path: "show_images", name: "图片插件+封装图片组件", component: () => import("@c/ShowImages/index.vue") },
+      { path: "slot", name: "插槽", component: () => import("@c/Slot/FatherSlot.vue") },
     ],
   },
   // {

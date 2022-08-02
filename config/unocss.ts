@@ -2,6 +2,21 @@
 //[/^p-(-?\d+)(px|%|vw|vh|rem|em)?$/, (d: any) => ({ padding: `${d / 4}px` })],
 //函数的第一个参数是匹配结果，您可以对其进行解构以获取匹配的组。
 
+const width_height: any = [
+  [
+    /^w-(-?\d+)(px|%|vw|vh|rem|em)?$/,
+    (d: any) => ({
+      width: `${d[1]}${d[2] || "px"}`,
+    }),
+  ],
+  [
+    /^h-(-?\d+)(px|%|vw|vh|rem|em)?$/,
+    (d: any) => ({
+      "height": `${d[1]}${d[2] || "px"}`,
+    }),
+  ]
+];
+
 const margin: any = [
   [
     /^m-(-?\d+)(px|%|vw|vh|rem|em)?$/,
@@ -96,21 +111,37 @@ const padding: any = [
   ],
 ];
 
+const flex: any = [
+  [
+    "flex", // 使用时只需要写 p-c 即可应用该组样式
+    {
+      display: "flex",
+      "flex-flow": "row wrap", //简写属性
+      "justify-content": "space-evenly",
+      "align-items": "center",
+      "justify-items": "stretch", //https://developer.mozilla.org/zh-CN/docs/Web/CSS/justify-items
+      "align-content": "space-evenly", //行与行之间的
+    },
+  ],
+];
+
 export default [
   // body 函数的第一个参数是匹配结果，您可以对其进行解构以获取匹配的组。
 
+  ...width_height,
   ...margin,
   ...padding,
+  ...flex,
 
   // 在这个可以增加预设规则, 也可以使用正则表达式
-  [
-    "xxxxxxx-xxxxx", // 使用时只需要写 p-c 即可应用该组样式
-    {
-      position: "absolute",
-      top: "50%",
-      left: "50%",
-      transform: `translate(-50%, -50%)`,
-    },
-  ],
+  // [
+  //   "xxxxxxx-xxxxx", // 使用时只需要写 p-c 即可应用该组样式
+  //   {
+  //     position: "absolute",
+  //     top: "50%",
+  //     left: "50%",
+  //     transform: `translate(-50%, -50%)`,
+  //   },
+  // ],
   // [/^m-(\d+)$/, ([, d]: any) => ({ margin: `${d / 4}rem` })],
 ];
