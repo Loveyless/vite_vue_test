@@ -27,6 +27,7 @@ const routes: Array<RouteRecordRaw> = [
       { path: "father_son", name: "父子之间", component: () => import("@c/FatherSon/Father.vue") },
       { path: "show_images", name: "图片插件+封装图片组件", component: () => import("@c/ShowImages/index.vue") },
       { path: "slot", name: "插槽", component: () => import("@c/Slot/FatherSlot.vue") },
+      { path: "wangeditor", name: "富文本", component: () => import("@c/WangEditor/index.vue") },
     ],
   },
   // {

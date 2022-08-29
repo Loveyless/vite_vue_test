@@ -9,6 +9,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     ElButton: typeof import('element-plus/es')['ElButton']
     ElContainer: typeof import('element-plus/es')['ElContainer']
+    ElDialog: typeof import('element-plus/es')['ElDialog']
     ElHeader: typeof import('element-plus/es')['ElHeader']
     ElMain: typeof import('element-plus/es')['ElMain']
     ElMenu: typeof import('element-plus/es')['ElMenu']
@@ -26,5 +27,7 @@ declare module '@vue/runtime-core' {
     Son: typeof import('./src/components/FatherSon/Son.vue')['default']
     SonSlot: typeof import('./src/components/Slot/SonSlot.vue')['default']
     Undefined: typeof import('./src/layout/index.vue')['default']
+    WangEdit: typeof import('./src/components/WangEdit/index.vue')['default']
+    WangEditor: typeof import('./src/components/WangEditor/index.vue')['default']
   }
 }
