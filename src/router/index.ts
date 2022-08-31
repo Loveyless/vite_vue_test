@@ -28,6 +28,7 @@ const routes: Array<RouteRecordRaw> = [
       { path: "show_images", name: "图片插件+封装图片组件", component: () => import("@c/ShowImages/index.vue") },
       { path: "slot", name: "插槽", component: () => import("@c/Slot/FatherSlot.vue") },
       { path: "wangeditor", name: "富文本", component: () => import("@c/WangEditor/index.vue") },
+      { path: "list_wuhu", name: "列表测试", component: () => import("@c/TestTemplate/ListWuhu!.vue") },
     ],
   },
   // {

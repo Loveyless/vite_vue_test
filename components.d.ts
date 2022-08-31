@@ -19,6 +19,7 @@ declare module '@vue/runtime-core' {
     FatherSlot: typeof import('./src/components/Slot/FatherSlot.vue')['default']
     Header: typeof import('./src/layout/Header.vue')['default']
     Home: typeof import('./src/components/Home/index.vue')['default']
+    'ListWuhu!': typeof import('./src/components/TestTemplate/ListWuhu!.vue')['default']
     MouseTracker: typeof import('./src/components/Slot/MouseTracker.vue')['default']
     MyImg: typeof import('./src/hooks/MyImg.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

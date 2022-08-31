@@ -93,7 +93,8 @@ export default [
       // './composables' // only root modules
       // './composables/**', // all nested modules
       // ...
-      './src/hooks/**', // all nested modules
+      //注意 这里的hooks都不能用默认导出 因为没名字
+      "./src/hooks/**", // all nested modules
     ],
     resolvers: [
       // IconsResolver() //这个去Components里写
