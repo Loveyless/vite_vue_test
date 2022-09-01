@@ -16,7 +16,7 @@
 
   </div>
 
-  <div> 实现这个需求</div>
+  <div>实现这个需求</div>
   <div>
     <video src="./video/wuhu.mp4" controls></video>
   </div>
@@ -53,12 +53,13 @@ function Down(e: MouseEvent) {
 
 function btn() {
   if (list1IsView.value) {
-    list1.value!.style.width = "0px"
-    list2.value!.style.width = "200px";
+    list1.value!.style.transform = "translateX(-110%)"
+    list2.value!.style.transform = "translateX(0)";
     list1IsView.value = false
   } else {
-    list1.value!.style.width = localStorage.getItem("list1Width") || "200px"
-    list2.value!.style.width = "0px";
+    // list1.value!.style.width = localStorage.getItem("list1Width") || "200px"
+    list1.value!.style.transform = "translateX(0)";
+    list2.value!.style.transform = "translateX(-110%)"
     list1IsView.value = true
   }
 }
@@ -70,18 +71,23 @@ onMounted(() => {
 <style lang='less' scoped>
 .content {
   display: flex;
+  position: relative;
   width: 100%;
   height: 500px;
   background-color: #008c8c;
+  overflow: hidden;
+
 
   .list1 {
+    position: absolute;
     width: 100px;
     background-color: yellow;
     display: flex;
-    transition: 1s width;
+    transition: transform 0.5s;
+    height: 100%;
 
     .menu {
-      width: auto;
+      width: 200px;
       flex: 1;
       height: 100%;
       background-color: lightsteelblue;
@@ -96,9 +102,11 @@ onMounted(() => {
   }
 
   .list2 {
+    position: absolute;
     width: 200px;
     background-color: lightblue;
-    transition: 1s width;
+    transition: transform 0.5s;
+    height: 100%;
   }
 
 
