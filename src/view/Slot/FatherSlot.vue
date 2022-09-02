@@ -13,26 +13,26 @@
     <!-- 没有提供 name 的 <slot> 插口会隐式地命名为“default”。 -->
     <SonSlot>
       <template #default="props">
-        我是父组件的插槽 我插进来了 我是默认插槽 {{ msg }}{{props }}
+        我是父组件的插槽 我插进来了 我是默认插槽 {{ msg }}{{ props }}
         <!-- 作用域插槽拿到传的值 -->
       </template>
 
       <template #[SlotName]="props">
         <!-- 具名插槽 + 动态插槽 -->
-        我是父组件的插槽 我插进来了 我是具名动态插槽 {{ msg}}{{props }}
+        我是父组件的插槽 我插进来了 我是具名动态插槽 {{ msg }}{{ props }}
         <!-- 作用域插槽拿到传的值 -->
       </template>
     </SonSlot>
 
-    
+
     <div>
       <button @click="changeSlot">动态插槽</button>
     </div>
 
 
     <!-- 只封装了方法的插槽 -->
-    <MouseTracker #default="{x,y}">
-      捕获当前鼠标位置 pageX{{x}}|| pageY{{y}}
+    <MouseTracker #default="{ x, y }">
+      捕获当前鼠标位置 pageX{{ x }}|| pageY{{ y }}
     </MouseTracker>
 
 
@@ -40,7 +40,6 @@
 </template>
 
 <script lang='ts' setup>
-import MouseTracker from './MouseTracker.vue';
 
 const msg = ref<string>("父组件的hello word")
 
@@ -50,8 +49,6 @@ function changeSlot() {
   SlotName.value == 'IHaveName' ?
     SlotName.value = 'IHaveMony' :
     SlotName.value = 'IHaveName'
-    console.log(SlotName.value);
-    
 }
 
 </script> 

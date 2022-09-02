@@ -5,7 +5,7 @@
     </div>
 
     <div> 父元素的默认插槽都在我下面👇</div>
-    <slot name="default" msg="默认插槽的传值">默认内容 但是父组件传插槽了 这个默认内容不会显示</slot> <!-- 作用域插槽也是插槽传值 除了name都可以拿到 -->
+    <slot name="default" title="123" msg="默认插槽的传值">默认内容 但是父组件传插槽了 这个默认内容不会显示</slot> <!-- 作用域插槽也是插槽传值 除了name都可以拿到 -->
 
     <div>具名在这里👇</div>
     <slot name="IHaveName" msg="Name插槽的传值" v-bind="obj">Name默认内容</slot> <!-- 作用域插槽也是插槽传值 除了name都可以拿到 -->
@@ -21,13 +21,13 @@
 
 //作用域插槽之间用就是直接映射key value
 const obj = ref<any>({
-  age:19,
-  sex:"male"
+  age: 19,
+  sex: "male"
 })
 </script> 
 
 <style lang='less' scoped>
-.box{
+.box {
   background-color: aquamarine;
 }
 </style>

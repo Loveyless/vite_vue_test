@@ -19,6 +19,7 @@ export default defineConfig({
       //    转为字符串      生成新的连接    后续连接         当前连接
       //https://developer.mozilla.org/zh-CN/docs/Web/API/URL/URL
       "@": fileURLToPath(new URL("./src", import.meta.url)),
+      "@v": fileURLToPath(new URL("./src/view", import.meta.url)),
       "@c": fileURLToPath(new URL("./src/components", import.meta.url)),
       "@h": fileURLToPath(new URL("./src/hooks", import.meta.url)),
     },

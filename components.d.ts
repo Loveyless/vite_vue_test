@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    DiaLog: typeof import('./src/components/DiaLog/index.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElDialog: typeof import('element-plus/es')['ElDialog']
@@ -15,20 +16,21 @@ declare module '@vue/runtime-core' {
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
-    Father: typeof import('./src/components/FatherSon/Father.vue')['default']
-    FatherSlot: typeof import('./src/components/Slot/FatherSlot.vue')['default']
+    Father: typeof import('./src/view/FatherSon/Father.vue')['default']
+    FatherSlot: typeof import('./src/view/Slot/FatherSlot.vue')['default']
     Header: typeof import('./src/layout/Header.vue')['default']
-    Home: typeof import('./src/components/Home/index.vue')['default']
-    'ListWuhu!': typeof import('./src/components/TestTemplate/ListWuhu!.vue')['default']
-    MouseTracker: typeof import('./src/components/Slot/MouseTracker.vue')['default']
+    Home: typeof import('./src/view/Home/index.vue')['default']
+    'ListWuhu!': typeof import('./src/view/TestTemplate/ListWuhu!.vue')['default']
+    MouseTracker: typeof import('./src/view/Slot/MouseTracker.vue')['default']
     MyImg: typeof import('./src/hooks/MyImg.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    ShowImages: typeof import('./src/components/ShowImages/index.vue')['default']
-    Son: typeof import('./src/components/FatherSon/Son.vue')['default']
-    SonSlot: typeof import('./src/components/Slot/SonSlot.vue')['default']
+    ShowImages: typeof import('./src/view/ShowImages/index.vue')['default']
+    Son: typeof import('./src/view/FatherSon/Son.vue')['default']
+    SonSlot: typeof import('./src/view/Slot/SonSlot.vue')['default']
+    TestDemo: typeof import('./src/view/TestDemo/index.vue')['default']
     Undefined: typeof import('./src/layout/index.vue')['default']
     WangEdit: typeof import('./src/components/WangEdit/index.vue')['default']
-    WangEditor: typeof import('./src/components/WangEditor/index.vue')['default']
+    WangEditor: typeof import('./src/view/WangEditor/index.vue')['default']
   }
 }
