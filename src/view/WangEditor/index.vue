@@ -141,7 +141,7 @@ const editorConfig: Partial<IEditorConfig> = {
 
 
 
-
+// 生命周期
 
 // 组件销毁时，也及时销毁编辑器
 onBeforeUnmount(() => {
@@ -162,11 +162,34 @@ const handleFocus = (editor: any) => { console.log('focus', editor) }
 const handleBlur = (editor: any) => { console.log('blur', editor) }
 const customAlert = (info: any, type: any) => { alert(`【自定义提示】${type} - ${info}`) }
 const customPaste = (editor: any, event: any, callback: any) => {
-  console.log('ClipboardEvent 粘贴事件对象', event)
   // const html = event.clipboardData.getData('text/html') // 获取粘贴的 html
   // const text = event.clipboardData.getData('text/plain') // 获取粘贴的纯文本
   // const rtf = event.clipboardData.getData('text/rtf') // 获取 rtf 数据（如从 word wsp 复制粘贴）
 
+
+  //这个功能好像富文本自带。。。 就等上传图片的接口了
+  //复制图片上传功能 这里直接复制如果小于 base64配置项 就直接base64存入html模板
+  // const imgData: any = event.clipboardData.items  //复制过来的值里面的clipboardData
+  // let file: any = null
+  // // console.log('ClipboardEvent 粘贴事件对象', imgData)
+  // for (let i = 0; i < imgData.length; i++) {      //有可能图片文字一起复制过来的 遍历每一项
+  //   console.log(imgData[i]);                      //DataTransferItem {kind: 'file', type: 'image/png'}
+  //   if (imgData[i].type.includes("image")) {      //取到img的哪项
+  //     file = imgData[i].getAsFile();              //上面有这个方法返回一个file对象
+  //     // console.log(file,typeof file);
+  //     break;
+  //   }
+  // }
+  // if(file){
+  //   let render = new FileReader()
+  //   render.onload = function(event:any) {
+  //     let img = document.createElement("img")
+  //     img.src = event.target.result //这就是图片的base64地址？不太懂
+  //   }
+  //   render.readAsDataURL(file)
+  // }
+
+  
   // 自定义插入内容
   // editor.insertText('xxx')
 
@@ -175,7 +198,7 @@ const customPaste = (editor: any, event: any, callback: any) => {
   // callback(false) // 返回值（注意，vue 事件的返回值，不能用 return）
 
   // 返回 true ，继续默认的粘贴行为
-  // callback(true)
+  callback(true)
 }
 
 

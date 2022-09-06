@@ -34,9 +34,9 @@ function customCheckImageFn(src: string, alt: string, url: string): boolean | un
   if (!src) {
     return;
   }
-  if (src.indexOf("http") !== 0) {
-    return "图片网址必须以 http/https 开头";
-  }
+  // if (src.indexOf("http") !== 0) {
+  //   return "图片网址必须以 http/https 开头";
+  // }
   return true;
 
   // 返回值有三种选择：
@@ -47,9 +47,9 @@ function customCheckImageFn(src: string, alt: string, url: string): boolean | un
 
 // 转换网络图片链接
 function customParseImageSrc(src: string): string {
-  if (src.indexOf("http") !== 0) {
-    return `http://${src}`;
-  }
+  // if (src.indexOf("http") !== 0) {
+  //   return `http://${src}`;
+  // }
   return src;
 }
 
@@ -125,34 +125,32 @@ const uploadImage: any = {
   },
 };
 
-
 // 自定义校验网络视频
 function customCheckVideoFn(src: string): boolean | string | undefined {
-    if (!src) {
-        return
-    }
-    if (src.indexOf('http') !== 0) {
-        return '视频地址必须以 http/https 开头'
-    }
-    return true
+  if (!src) {
+    return;
+  }
+  if (src.indexOf("http") !== 0) {
+    return "视频地址必须以 http/https 开头";
+  }
+  return true;
 
-    // 返回值有三种选择：
-    // 1. 返回 true ，说明检查通过，编辑器将正常插入视频
-    // 2. 返回一个字符串，说明检查未通过，编辑器会阻止插入。会 alert 出错误信息（即返回的字符串）
-    // 3. 返回 undefined（即没有任何返回），说明检查未通过，编辑器会阻止插入。但不会提示任何信息
+  // 返回值有三种选择：
+  // 1. 返回 true ，说明检查通过，编辑器将正常插入视频
+  // 2. 返回一个字符串，说明检查未通过，编辑器会阻止插入。会 alert 出错误信息（即返回的字符串）
+  // 3. 返回 undefined（即没有任何返回），说明检查未通过，编辑器会阻止插入。但不会提示任何信息
 }
 
 // 自定义转换网络视频
 function customParseVideoSrc(src: string): string {
-    if (src.includes('.bilibili.com')) {
-        // 转换 bilibili url 为 iframe （仅作为示例，不保证代码正确和完整）
-        // const arr = location.pathname.split('/')
-        // const vid = arr[arr.length - 1]
-        // return `<iframe src="//player.bilibili.com/player.html?bvid=${vid}" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>`
-    }
-    return src
+  if (src.includes(".bilibili.com")) {
+    // 转换 bilibili url 为 iframe （仅作为示例，不保证代码正确和完整）
+    // const arr = location.pathname.split('/')
+    // const vid = arr[arr.length - 1]
+    // return `<iframe src="//player.bilibili.com/player.html?bvid=${vid}" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>`
+  }
+  return src;
 }
-
 
 // 上传视频
 const uploadVideo: any = {
@@ -226,78 +224,76 @@ const uploadVideo: any = {
   },
 };
 
-
 // 上传附件
-const uploadAttachment:any={
-  
-      server: '/api/upload', // 服务端地址
-      timeout: 5 * 1000, // 5s
+const uploadAttachment: any = {
+  server: "/api/upload", // 服务端地址
+  timeout: 5 * 1000, // 5s
 
-      fieldName: 'custom-fileName',
-      meta: { token: 'xxx', a: 100 }, // 请求时附加的数据
-      metaWithUrl: true, // meta 拼接到 url 上
-      headers: { Accept: 'text/x-json' },
+  fieldName: "custom-fileName",
+  meta: { token: "xxx", a: 100 }, // 请求时附加的数据
+  metaWithUrl: true, // meta 拼接到 url 上
+  headers: { Accept: "text/x-json" },
 
-      maxFileSize: 10 * 1024 * 1024, // 10M
+  maxFileSize: 10 * 1024 * 1024, // 10M
 
-      onBeforeUpload(file: File) {
-        console.log('onBeforeUpload', file)
-        return file // 上传 file 文件
-        // return false // 会阻止上传
-      },
-      onProgress(progress: number) {
-        console.log('onProgress', progress)
-      },
-      onSuccess(file: File, res: any) {
-        console.log('onSuccess', file, res)
-      },
-      onFailed(file: File, res: any) {
-        alert(res.message)
-        console.log('onFailed', file, res)
-      },
-      onError(file: File, err: Error, res: any) {
-        alert(err.message)
-        console.error('onError', file, err, res)
-      },
+  onBeforeUpload(file: File) {
+    console.log("onBeforeUpload", file);
+    return file; // 上传 file 文件
+    // return false // 会阻止上传
+  },
+  onProgress(progress: number) {
+    console.log("onProgress", progress);
+  },
+  onSuccess(file: File, res: any) {
+    console.log("onSuccess", file, res);
+  },
+  onFailed(file: File, res: any) {
+    alert(res.message);
+    console.log("onFailed", file, res);
+  },
+  onError(file: File, err: Error, res: any) {
+    alert(err.message);
+    console.error("onError", file, err, res);
+  },
 
-      // // 上传成功后，用户自定义插入文件
-      // customInsert(res: any, file: File, insertFn: Function) {
-      //   console.log('customInsert', res)
-      //   const { url } = res.data || {}
-      //   if (!url) throw new Error(`url is empty`)
+  // // 上传成功后，用户自定义插入文件
+  // customInsert(res: any, file: File, insertFn: Function) {
+  //   console.log('customInsert', res)
+  //   const { url } = res.data || {}
+  //   if (!url) throw new Error(`url is empty`)
 
-      //   // 插入附件到编辑器
-      //   insertFn(`customInsert-${file.name}`, url)
-      // },
+  //   // 插入附件到编辑器
+  //   insertFn(`customInsert-${file.name}`, url)
+  // },
 
-      // // 用户自定义上传
-      // customUpload(file: File, insertFn: Function) {
-      //   console.log('customUpload', file)
+  // // 用户自定义上传
+  // customUpload(file: File, insertFn: Function) {
+  //   console.log('customUpload', file)
 
-      //   return new Promise(resolve => {
-      //     // 插入一个文件，模拟异步
-      //     setTimeout(() => {
-      //       const src = `https://www.w3school.com.cn/i/movie.ogg`
-      //       insertFn(`customUpload-${file.name}`, src)
-      //       resolve('ok')
-      //     }, 500)
-      //   })
-      // },
+  //   return new Promise(resolve => {
+  //     // 插入一个文件，模拟异步
+  //     setTimeout(() => {
+  //       const src = `https://www.w3school.com.cn/i/movie.ogg`
+  //       insertFn(`customUpload-${file.name}`, src)
+  //       resolve('ok')
+  //     }, 500)
+  //   })
+  // },
 
-      // // 自定义选择
-      // customBrowseAndUpload(insertFn: Function) {
-      //   alert('自定义选择文件，如弹出图床')
-      //   // 自己上传文件
-      //   // 上传之后用 insertFn(fileName, link) 插入到编辑器
-      // },
+  // // 自定义选择
+  // customBrowseAndUpload(insertFn: Function) {
+  //   alert('自定义选择文件，如弹出图床')
+  //   // 自己上传文件
+  //   // 上传之后用 insertFn(fileName, link) 插入到编辑器
+  // },
 
-      // 插入到编辑器后的回调
-      onInsertedAttachment(elem: AttachmentElement) {
-        console.log('inserted attachment', elem)
-      },
+  // 插入到编辑器后的回调
+  onInsertedAttachment(elem: AttachmentElement) {
+    console.log("inserted attachment", elem);
+  },
 
   // 其他...
-}
+};
 export default {
   customCheckLinkFn,
   customParseLinkUrl,

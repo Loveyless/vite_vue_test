@@ -22,14 +22,16 @@ import IconsResolver from "unplugin-icons/resolver";
 // 原子化css https://github.com/unocss/unocss
 import Unocss from "unocss/vite";
 // 原子化css 第一个是工具类预设，第二个是属性化模式支持，第三个是icon支持 还有别的预设
-import { presetUno, presetAttributify, presetIcons } from "unocss";
-import unocssRule from "./unocss";
+import { presetWind, presetAttributify, presetIcons } from "unocss";
+import unocssRule from "../uno.config";
 
 // 使vue脚本设置语法支持name属性 https://github.com/chenxch/unplugin-vue-setup-extend-plus
 import vueSetupExtend from "unplugin-vue-setup-extend-plus/vite";
 
 // 自动引入图片 https://github.com/sampullman/vite-plugin-vue-images
-// 注意！如果变量（道具、数据）与图像名称冲突 它们将在模板中被破坏 在模板中使用图像而无需import通过data 直接写图像名称 目前不支持重复的图像名称。目前，或必须使用v-bind:src速记。:src
+// 注意！如果变量（道具、数据）与图像名称冲突 它们将在模板中被破坏 在模板中使用图像而无需import通过data 直接写图像名称 目前不支持重复的图像名称。
+// 目前，或必须使用v-bind:src速记。:src
+// 最好不在生产环境使用 编辑器会报错很烦
 import ViteImages from "vite-plugin-vue-images";
 
 // 打包时显示进度条 https://github.com/jeddygong/vite-plugin-progress
@@ -39,12 +41,12 @@ export default [
   vue(),
   Unocss({
     presets: [
-      //unocss默认预设
-      // presetUno(), //使用自定义 不用预设
+      //wind默认预设
+      presetWind(),
       presetAttributify(),
       presetIcons(),
     ],
-    rules: unocssRule as any,
+    // rules: unocssRule as any, //不用自定义预设
   }),
   vueSetupExtend({
     mode: "relativeName", //自动读取相对路径名
