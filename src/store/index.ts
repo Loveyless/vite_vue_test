@@ -1,25 +1,31 @@
-import { defineStore } from "pinia";
+import { defineStore, createPinia } from "pinia";
+import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
 
 // 使用setup模式定义
-export const Global = defineStore(
-  "Global",
+export const GlobalStore = defineStore(
+  "GlobalStore",
   () => {
-    const count = ref<number>(1);
+    let token = ref<string>("");
 
-    function countAdd() {
+    let count = ref<number>(0);
+    function countAdd(): void {
       count.value++;
     }
 
-    function doubleCount() {
+    function doubleCount(): number {
       return count.value * 2;
     }
 
-    return { count, countAdd, doubleCount };
+    return { token, count, countAdd, doubleCount };
   },
   {
     persist: true,
   }
 );
+
+const pinia = createPinia();
+pinia.use(piniaPluginPersistedstate);
+export default pinia;
 
 // 使用options API模式定义
 // export const Global = defineStore("Global", {

@@ -21,7 +21,6 @@ export default defineConfig({
       "@": fileURLToPath(new URL("./src", import.meta.url)),
       "@v": fileURLToPath(new URL("./src/view", import.meta.url)),
       "@c": fileURLToPath(new URL("./src/components", import.meta.url)),
-      "@h": fileURLToPath(new URL("./src/hooks", import.meta.url)),
     },
 
     //另一种写法

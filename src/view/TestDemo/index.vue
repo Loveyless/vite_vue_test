@@ -16,9 +16,9 @@
 
 
   <!-- 测试pinia -->
-  <div>{{ global.count }}</div>
-  <div>{{ global.doubleCount() }}</div>
-  <el-button type="primary" plain @click="global.countAdd">+1</el-button>
+  <div>{{ globalStore.count }}</div>
+  <div>{{ globalStore.doubleCount() }}</div>
+  <el-button type="primary" plain @click="globalStore.countAdd">+1</el-button>
 
   Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi odio incidunt provident est nobis natus nihil tempora
   repellat facere ducimus neque id, veritatis architecto non, maiores ab blanditiis. Perspiciatis omnis debitis
@@ -110,9 +110,8 @@
 </template>
 
 <script lang='ts' setup>
-import { Global } from "@/store/Global"
 const isShow = ref<boolean>(false)
-const global = Global()
+const globalStore = GlobalStore()
 
 </script> 
 

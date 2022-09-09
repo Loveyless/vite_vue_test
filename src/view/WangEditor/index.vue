@@ -19,7 +19,7 @@
   </el-dialog>
 </template>
 
-<script lang='ts' setup>
+<script lang='ts' setup name="wangeditor">
 import '@wangeditor/editor/dist/css/style.css' // 引入 css
 import { Editor, Toolbar, } from '@wangeditor/editor-for-vue';
 import type { IToolbarConfig, IEditorConfig, SlateElement } from '@wangeditor/editor'

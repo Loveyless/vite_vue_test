@@ -1,57 +1,40 @@
-import { createRouter, createWebHashHistory } from "vue-router";
-import type { RouteRecordRaw } from "vue-router";
+import router from "@/router/routes";
+import { openLoading, closeLoading } from "@/hooks/loading";
+import NProgress from "@/hooks/nprogress";
+import { GlobalStore } from "@/store";
+import { AxiosCanceler } from "@/axios/cancel";
 
-//布局容器
-import Layout from "@/layout/index.vue";
+//实例化取消请求
+const axiosCanceler = new AxiosCanceler();
 
-// const metaRouters: any = import.meta.glob("./modules/*.ts", { eager: true });
-// // * 处理路由
-// export const AllRoute: RouteRecordRaw[] = [];
-// Object.keys(metaRouters).forEach((item) => {
-//   Object.keys(metaRouters[item]).forEach((key: any) => {
-//     AllRoute.push(...metaRouters[item][key]);
-//   });
-// });
+//拦截
+router.beforeEach((to, from, next) => {
+  const globalStore = GlobalStore();
+  //转跳路由之前 清除所有请求
+  axiosCanceler.removeAllPending();
 
-const routes: Array<RouteRecordRaw> = [
-  {
-    path: "/",
-    redirect: "/layout",
-  },
-  {
-    path: "/layout",
-    component: Layout,
-    redirect: "/layout/home",
-    children: [
-      { path: "home", name: "主页", component: () => import("@v/Home/index.vue") },
-      { path: "father_son", name: "父子之间", component: () => import("@v/FatherSon/Father.vue") },
-      { path: "show_images", name: "图片插件+封装图片组件", component: () => import("@v/ShowImages/index.vue") },
-      { path: "slot", name: "插槽", component: () => import("@v/Slot/FatherSlot.vue") },
-      { path: "wangeditor", name: "富文本", component: () => import("@v/WangEditor/index.vue") },
-      { path: "list_wuhu", name: "列表测试", component: () => import("@v/TestTemplate/ListWuhu!.vue") },
-      { path: "test_demo", name: "测试demo", component: () => import("@v/TestDemo/index.vue") },
-    ],
-  },
-  // {
-  //   path: "/404",
-  //   component: () => import("@/components/404.vue"),
-  // },
-  // {
-  //   path: "/:pathMatch(.*)*", //匹配没匹上的所有路由到404
-  //   redirect: "/404",
-  // },
-];
+  // 判断当前路由是否需要loading切换
+  if (!to.matched.some((item) => item.meta.noLoading)) {
+    openLoading();
+  }
 
-//hash路由
-const router = createRouter({
-  history: createWebHashHistory(),
-  routes,
-  // 切换页面，滚动到最顶部
-  scrollBehavior: () => ({ left: 0, top: 0 }),
+  // 判断当前路由是否需要访问权限
+  // if (to.matched.some((item) => item.meta.noRequireAuth)){
+  //   //不要权限 直接放行
+  //   return next();
+  // }else if(globalStore.token){
+  //   //有token 放行
+  //   return next();
+  // }else{
+  //   next("/login")
+  // }
+
+  next();
 });
 
-router.beforeEach(() => {});
-
-router.afterEach(() => {});
+//响应
+router.afterEach((to, from, failure) => {
+  closeLoading();
+});
 
 export default router;
