@@ -1,40 +1,59 @@
 
 ## 目录
-components/*
 
-Home 主页 展示一些无
-Father 父子传值等等
 
-哈哈 突然发现直接看路由表也一样
+## 集成
 
+### axios
+请求取消 
+
+### router
+路由表meta进行判断
+切换时loading 和 取消请求
 
 ## 探索插件
 
 **集成**
+
 @vitejs/plugin-legacy - 旧版浏览器支持。
+
 vite-plugin-ali-oss - 将项目捆绑的生产文件上传到阿里OSS，HTML除外。 / vite-plugin-tencent-oss - 将项目捆绑的生产文件上传到腾讯OSS，HTML除外。
+
 vite-plugin-webfont-dl - 下载并注入 webfonts（谷歌字体）以提高网站的性能。
 
 
+
 **装载？**
+
 vite-plugin-rsw - 加载 rust-compiled (wasm-pack) WebAssembly 包。
 
 
+
 **打包**
+
 vite-plugin-imagemin - 压缩图像资产。
-vite-plugin-compress - 压缩你的包 + 资产。/ vite-plugin-compression - 使用 gzip 或 brotli 压缩资源。/ vite-compression-plugin - 使用 Node.js 流压缩文件到 gzip 或更多。
+
+vite-plugin-compress - 压缩你的包 + 资产。/ vite-plugin-compression - 使用 gzip 或 brotli 压缩资源。/ vite-compression-
+
+plugin - 使用 Node.js 流压缩文件到 gzip 或更多。
+
 vite-plugin-banner - 在每个生成的块的顶部添加一个横幅。
+
 >vite-plugin-vue-docs - 分析 vue 组件以自动生成可预览文档。
 vite-plugin-importus - 模块化导入插件，兼容 antd、lodash、material-ui 等。
 >vite-plugin-cdn-import CDN插件
 
 
+
 **变行金刚？**
+
 vite-plugin-unocss-to-uni - UnoCSSin uni-app。
 vite-plugin-mock mock数据 提供本地和生产模拟服务。  https://github.com/vbenjs/vite-plugin-mock/blob/main/README.zh_CN.md
 
 
+
 **好帮手**
+
 >vite-plugin-theme - 动态改变主题颜色。
 vite-plugin-mkcert - 提供证书 https 开发服务器。
 vite-dts.d.ts -为库生成模块的超快插件。
@@ -44,20 +63,26 @@ vitawind - 自动安装和设置 Tailwind CSS。
 >vite-plugin-md2vue - 将 markdown 模块转换为 Vue 组件。
 >vite-plugin-svg-icons 用于生成 svg 雪碧图.  https://github.com/vbenjs/vite-plugin-svg-icons/blob/main/README.zh_CN.md
 
+
+
 **其他**
+
 >vite-plugin-md - Markdown 作为 Vue 组件 / Markdown 中的 Vue 组件。
 vite-svg-loader - 将 SVG 文件加载为 Vue 组件。
 v2 vite-plugin-vue2-svg - 将 SVG 文件加载为 Vue 组件。
 
 SSG
+
 vite-ssg - 服务器端生成。
 
-
 vite-plugin-vue-i18n - Vue I18n 的集成。
+
 vite-plugin-i18n-resources - 加载 i18n 翻译消息文件。
 
 
+
 **用过的**
+
 vite-plugin-remove-console - 在生产环境中删除 console.log 的 vite 插件。
 
 
@@ -351,5 +376,4 @@ export default {
 }
 
 ```
-
 
