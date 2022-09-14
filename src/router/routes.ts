@@ -21,13 +21,14 @@ import { createRouter, createWebHashHistory } from "vue-router";
  * @param meta.noKeepAlive ==> 是否不缓存该路由 默认缓存
  * @param meta.title ==> 路由标题 目前用name
  * @param meta.key	==> 路由key 目前用不到
- * @param meta.noLoading ==> 切换路由loading 默认都有
+ * @param meta.noLoading ==> 页面loading 默认都有
+ * @param meta.noNProgress ==> 顶部进度条 默认都有
  * */
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    redirect: "/login",
+    redirect: "/layout",
   },
   {
     path: "/login",
@@ -48,8 +49,9 @@ const routes: Array<RouteRecordRaw> = [
       { path: "show_images", name: "图片插件+封装图片组件", component: () => import("@v/ShowImages/index.vue") },
       { path: "slot", name: "插槽", component: () => import("@v/Slot/FatherSlot.vue") },
       { path: "editor", name: "富文本", component: () => import("@v/WangEditor/index.vue") },
-      { path: "list_wuhu", name: "列表测试", component: () => import("@v/TestTemplate/ListWuhu!.vue") },
-      { path: "test_demo", name: "测试demo", component: () => import("@v/TestDemo/index.vue") },
+      { path: "list_wuhu", name: "动态菜单", component: () => import("@v/TestTemplate/ListWuhu!.vue") },
+      { path: "test_demo", name: "pinia-setup和dialog组件", component: () => import("@v/TestDemo/index.vue") },
+      { path: "provide_inject", name: "依赖注入", component: () => import("@v/Provide&Inject/index.vue") },
     ],
   },
   {

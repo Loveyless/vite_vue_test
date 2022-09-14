@@ -8,6 +8,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     404: typeof import('./src/view/404/index.vue')['default']
+    Child: typeof import('./src/view/Provide&Inject/child.vue')['default']
     copy: typeof import('./src/view/Home copy/index.vue')['default']
     DiaLog: typeof import('./src/components/DiaLog/index.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
@@ -41,6 +42,7 @@ declare module '@vue/runtime-core' {
     Login: typeof import('./src/view/login/index.vue')['default']
     MouseTracker: typeof import('./src/view/Slot/MouseTracker.vue')['default']
     MyImg: typeof import('./src/components/ErrorImage/MyImg.vue')['default']
+    'Provide&Inject': typeof import('./src/view/Provide&Inject/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ShowImages: typeof import('./src/view/ShowImages/index.vue')['default']

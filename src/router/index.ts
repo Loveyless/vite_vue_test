@@ -18,6 +18,11 @@ router.beforeEach((to, from, next) => {
     openLoading();
   }
 
+  // 判断当前路由是否需要顶部进度条
+  if (!to.matched.some((item) => item.meta.noNProgress)) {
+    NProgress.start();
+  }
+
   // 判断当前路由是否需要访问权限
   // if (to.matched.some((item) => item.meta.noRequireAuth)){
   //   //不要权限 直接放行
@@ -35,6 +40,7 @@ router.beforeEach((to, from, next) => {
 //响应
 router.afterEach((to, from, failure) => {
   closeLoading();
+  NProgress.done();
 });
 
 export default router;
