@@ -26,11 +26,21 @@ instance.interceptors.request.use(
       }
     }
 
+    // 打印请求
+    console.log("-------------------");
+    console.log("地址", config.method, config.url);
+    console.log("请求头", config.headers);
+    console.log("请求参数", config.data);
+
     return { ...config };
   },
   (err: AxiosError) => {
     closeLoading();
     NProgress.done();
+
+    //前置请求错误
+    console.log("前置请求错误", err.message);
+    return Promise.reject(err);
   }
 );
 
@@ -43,11 +53,19 @@ instance.interceptors.response.use(
 
     closeLoading();
     NProgress.done();
+
+    // 打印返回值
+    console.log("请求结果", response.data);
     return response;
   },
   (err: AxiosError) => {
     closeLoading();
     NProgress.done();
+
+    //后置请求错误
+    console.log("后置请求错误", err);
+    console.log("后置错误详情", err.response);
+    return Promise.reject(err);
   }
 );
 
