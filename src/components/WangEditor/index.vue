@@ -1,22 +1,10 @@
 <template>
-  <div style="text-align: left;border: 1px solid #ccc;">
+  <div>
     <Toolbar style="border-bottom: 1px solid #ccc" :editor="editorRef" :defaultConfig="toolbarConfig" :mode="mode" />
-    <Editor style="height:700px; overflow-y: hidden;" v-model="valueHtml" :defaultConfig="editorConfig" :mode="mode"
+    <Editor :style='{ height : props.height }' v-model="valueHtml" :defaultConfig="editorConfig" :mode="mode"
       @onCreated="handleCreated" @onChange="handleChange" @onDestroyed="handleDestroyed" @onFocus="handleFocus"
       @onBlur="handleBlur" @customAlert="customAlert" @customPaste="customPaste" />
   </div>
-
-  <div class="btn">
-    <el-button type="primary" plain size="default" @click="sendText"> 确定 </el-button>
-    <el-button type="primary" plain size="default" @click="showLook"> 预览 </el-button>
-  </div>
-
-
-  <!-- <el-dialog v-model="dialogVisible" fullscreen width="1450px" top="8vh"> -->
-  <el-dialog v-model="dialogVisible" fullscreen>
-    <div class="show_text_box" style="text-align: left;min-height: 700px;" v-html="valueHtml">
-    </div>
-  </el-dialog>
 </template>
 
 <script lang='ts' setup name="wangeditor">
@@ -29,6 +17,7 @@ import attachmentModule from '@wangeditor/plugin-upload-attachment'
 import markdownModule from '@wangeditor/plugin-md'
 //配置文件
 import WConfig from "./WangEditor.config"
+const global = GlobalStore()
 
 //上传附件插件注册 https://www.wangeditor.com/v5/plugins.html
 Boot.registerModule(attachmentModule)
@@ -98,7 +87,7 @@ const editorConfig: Partial<IEditorConfig> = {
         if (imageNode == null) return
         const { src, alt, url, href } = imageNode
         console.log('inserted image', src, alt, url, href)
-        let imageList1 = []
+        let imageList1: any = []
         imageList1.push(imageNode)
         console.log("imglist", imageList1);
       },
@@ -189,7 +178,7 @@ const customPaste = (editor: any, event: any, callback: any) => {
   //   render.readAsDataURL(file)
   // }
 
-  
+
   // 自定义插入内容
   // editor.insertText('xxx')
 
@@ -202,17 +191,28 @@ const customPaste = (editor: any, event: any, callback: any) => {
 }
 
 
-// 预览
-const dialogVisible = ref(false)
-function showLook() {
-  dialogVisible.value = true
+
+
+
+
+
+/**
+ * 以下为组件 接受项 导出项
+ */
+
+const props = withDefaults(defineProps<{ height?: string }>(), { height: '700px' })
+
+//更改编辑器html 字符串
+function setEditorHtml(html: string) {
+  valueHtml.value = html
 }
 
-//确认
-function sendText() {
-  console.log(valueHtml.value);
-  console.log(typeof valueHtml.value);
-}
+//导出 模板内容 和 更改函数 获取时无需.value 直接 editorRef.value.valueHtml
+defineExpose({
+  editorRef,  //实例
+  valueHtml,  //内容
+  setEditorHtml, //更改内容
+})
 </script> 
 
 <style lang="less" scoped>
