@@ -2,7 +2,7 @@ import axios from "axios";
 
 let instance = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL as string,
-  timeout: 1000,
+  // timeout: 1000,
   // headers: { "X-Custom-Header": "foobar" },
   // 跨域时候允许携带凭证
   withCredentials: true,
@@ -44,6 +44,5 @@ let instance = axios.create({
   // `cancelToken` 指定用于取消请求的 cancel token
   // cancelToken: new CancelToken(function (cancel) {}),
 });
-
 
 export default instance;

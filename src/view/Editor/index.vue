@@ -17,7 +17,7 @@ const editorRef = ref<any>('')
 
 //预览
 function showHtml() {
-
+  alert(editorRef.value.valueHtml)
 }
 
 onMounted(() => {

@@ -9,6 +9,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     404: typeof import('./src/view/404/index.vue')['default']
     Child: typeof import('./src/view/Provide&Inject/child.vue')['default']
+    Composable: typeof import('./src/view/Composable/index.vue')['default']
     copy: typeof import('./src/view/Home copy/index.vue')['default']
     DiaLog: typeof import('./src/components/DiaLog/index.vue')['default']
     Editor: typeof import('./src/view/Editor/index.vue')['default']
@@ -50,6 +51,7 @@ declare module '@vue/runtime-core' {
     Son: typeof import('./src/view/FatherSon/Son.vue')['default']
     SonSlot: typeof import('./src/view/Slot/SonSlot.vue')['default']
     TestDemo: typeof import('./src/view/TestDemo/index.vue')['default']
+    TestMyDialog: typeof import('./src/view/TestMyDialog/index.vue')['default']
     Undefined: typeof import('./src/layout/index.vue')['default']
     WangEditor: typeof import('./src/components/WangEditor/index.vue')['default']
   }

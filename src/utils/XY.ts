@@ -1,3 +1,11 @@
+
+// 官网的组合式函数例子 Composable
+
+// import { onMounted,onUnmounted } from "vue";
+
+//结合了另一个组合式函数 useEventLister
+import { useEventListener } from "./useEventLister";
+
 export function useMouse() {
   const x = ref<number>(0);
   const y = ref<number>(0);
@@ -7,8 +15,7 @@ export function useMouse() {
     y.value = e.pageY;
   };
 
-  onMounted(() => window.addEventListener("mousemove", update));
-  onUnmounted(() => window.removeEventListener("mousemove", update));
+  useEventListener(window, "mousemove", update);
 
   return { x, y };
 }

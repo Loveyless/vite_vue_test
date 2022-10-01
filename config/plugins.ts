@@ -30,7 +30,7 @@ import unocssRule from "../uno.config";
 import vueSetupExtend from "unplugin-vue-setup-extend-plus/vite";
 
 // 点哪里打开代码哪里 https://github.com/webfansplz/vite-plugin-vue-inspector 我的vscode没有shell 用不了操
-import Inspector from "vite-plugin-vue-inspector";
+// import Inspector from "vite-plugin-vue-inspector";
 // 打包时显示进度条 https://github.com/jeddygong/vite-plugin-progress
 import progress from "vite-plugin-progress";
 //remove log https://github.com/xiaoxian521/vite-plugin-remove-console
@@ -59,10 +59,10 @@ export default [
     autoInstall: true,
     compiler: "vue3",
   }),
-  Inspector({
-    // 我的编辑器没有shell 用不了 哈哈 默认按键ctrl+shift
-    enabled: false,
-  }),
+  // Inspector({
+  //   // 我的编辑器没有shell 用不了 哈哈 默认按键ctrl+shift
+  //   enabled: false,
+  // }),
   AutoImport({
     dts: true,
     include: [

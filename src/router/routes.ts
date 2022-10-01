@@ -50,8 +50,9 @@ const routes: Array<RouteRecordRaw> = [
       { path: "slot", name: "插槽", component: () => import("@v/Slot/FatherSlot.vue") },
       { path: "editor", name: "富文本", component: () => import("@v/Editor/index.vue") },
       { path: "list_wuhu", name: "动态菜单", component: () => import("@v/TestTemplate/ListWuhu!.vue") },
-      { path: "test_demo", name: "pinia-setup和dialog组件", component: () => import("@v/TestDemo/index.vue") },
+      { path: "test_my_dialog", name: "pinia-setup和dialog组件", component: () => import("@v/TestDemo/index.vue") },
       { path: "provide_inject", name: "依赖注入", component: () => import("@v/Provide&Inject/index.vue") },
+      { path: "composable", name: "组合式函数 异步组合式函数", component: () => import("@v/Composable/index.vue") },
     ],
   },
   {

@@ -15,11 +15,13 @@ instance.interceptors.request.use(
     // 将当前请求添加到 pending 中
     axiosCanceler.addPending(config);
 
-    //全局loading 和 进度条 请求头中 { loaind : true , loadingdark : true , nprogress : true }
-    config.headers!.nprogress && NProgress.start(); //默认需要进度条
-    if (!config.headers!.loading) {
-      //默认不要loading
-      if (config.headers!.loadingdark) {
+    //全局loading 和 进度条 请求头中 { loading : 0 , loadingdark : 0 , nprogress : 0 }  0为不显示 1为显示
+    //默认需要进度条
+    config.headers!.nprogress != 0 && NProgress.start();
+    if (config.headers!.loading != 0) {
+      //默认需要loading
+      if (config.headers!.loadingdark == 0) {
+        //默认黑色loading
         openLoading();
       } else {
         openLoading(true); //白色loading
