@@ -31,4 +31,5 @@ export default defineConfig({
   },
   build,
   plugins,
+  server: {},
 });

@@ -8,6 +8,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     404: typeof import('./src/view/404/index.vue')['default']
+    Chat: typeof import('./src/view/Websocket/Chat.vue')['default']
     Child: typeof import('./src/view/Provide&Inject/child.vue')['default']
     Composable: typeof import('./src/view/Composable/index.vue')['default']
     copy: typeof import('./src/view/Home copy/index.vue')['default']
@@ -54,5 +55,6 @@ declare module '@vue/runtime-core' {
     TestMyDialog: typeof import('./src/view/TestMyDialog/index.vue')['default']
     Undefined: typeof import('./src/layout/index.vue')['default']
     WangEditor: typeof import('./src/components/WangEditor/index.vue')['default']
+    Websocket: typeof import('./src/view/Websocket/index.vue')['default']
   }
 }

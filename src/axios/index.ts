@@ -4,6 +4,7 @@ import { openLoading, closeLoading } from "@/hooks/loading";
 import NProgress from "@/hooks/nprogress";
 import { Loading } from "@element-plus/icons-vue";
 import { AxiosCanceler } from "@/axios/cancel";
+import { ElMessage } from "element-plus";
 
 //实例化取消请求
 const axiosCanceler = new AxiosCanceler();
@@ -57,7 +58,19 @@ instance.interceptors.response.use(
     NProgress.done();
 
     // 打印返回值
-    console.log("请求结果", response.data);
+    console.log("请求结果", data);
+    // 根据请求弹窗 可删除
+    if (data.status == 200) {
+      ElMessage({
+        message: data.message,
+        type: "success",
+      });
+    } else {
+      ElMessage({
+        message: data.message,
+        type: "error",
+      });
+    }
     return response;
   },
   (err: AxiosError) => {

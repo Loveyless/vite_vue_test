@@ -53,6 +53,7 @@ const routes: Array<RouteRecordRaw> = [
       { path: "test_my_dialog", name: "pinia-setup和dialog组件", component: () => import("@v/TestDemo/index.vue") },
       { path: "provide_inject", name: "依赖注入", component: () => import("@v/Provide&Inject/index.vue") },
       { path: "composable", name: "组合式函数 异步组合式函数", component: () => import("@v/Composable/index.vue") },
+      { path: "websocket", name: "websocket聊天", component: () => import("@v/Websocket/index.vue") },
     ],
   },
   {
