@@ -6,9 +6,10 @@
     <el-button type="primary" @click="connectWebsocket">连接聊天</el-button>
     <el-button type="warning" @click="close">关闭聊天</el-button>
 
-    <div class="w-500px h500px box_chat">
-      <!-- <div class="box_chat_item" v-for="item in chatList">{{ item.username + " " + item.message }}</div> -->
-      <div class="box_chat_item" v-for="item in chatList">{{ item }}</div>
+    <div class="w-500px h500px overflow-auto box_chat">
+      <div class="box_chat_item" v-for="item in chatList">
+        {{ item.username + " " + item.time + " " + item.message }}
+      </div>
     </div>
     <el-input style="margin-left:10px;width:500px;" v-model="msgData.message">
       <template #suffix>
@@ -53,8 +54,8 @@ function connectWebsocket() {
     // 接收到消息
     (evt) => {
       console.log('收到来自服务端的消息：', evt.data);
-      // chatList.value.push(JSON.parse(evt.data))
-      chatList.value.push(evt.data)
+      chatList.value.push(JSON.parse(evt.data))
+      // chatList.value.push(evt.data)
     }
   )
 };
