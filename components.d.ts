@@ -12,6 +12,7 @@ declare module '@vue/runtime-core' {
     Child: typeof import('./src/view/Provide&Inject/child.vue')['default']
     Composable: typeof import('./src/view/Composable/index.vue')['default']
     copy: typeof import('./src/view/Home copy/index.vue')['default']
+    CustomDirectives: typeof import('./src/view/CustomDirectives/index.vue')['default']
     DiaLog: typeof import('./src/components/DiaLog/index.vue')['default']
     Editor: typeof import('./src/view/Editor/index.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']

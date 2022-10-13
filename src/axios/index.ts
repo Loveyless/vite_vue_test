@@ -52,7 +52,7 @@ instance.interceptors.response.use(
   (response: AxiosResponse) => {
     const { data, config } = response;
     // 在请求结束后，移除本次请求
-    axiosCanceler.removePending(config);
+    // axiosCanceler.removePending(config);
 
     closeLoading();
     NProgress.done();
@@ -62,13 +62,18 @@ instance.interceptors.response.use(
     // 根据请求弹窗 可删除
     if (data.status == 200) {
       ElMessage({
-        message: data.message,
+        message: data.message ?? "请求成功",
         type: "success",
+      });
+    } else if (data.status == 400) {
+      ElMessage({
+        message: data.message ?? "请求失败",
+        type: "error",
       });
     } else {
       ElMessage({
-        message: data.message,
-        type: "error",
+        message: `请求成功 状态码${data.status}`,
+        type: "info",
       });
     }
     return response;

@@ -1,6 +1,6 @@
 <template>
   <!-- 控制dialog -->
-  <el-button type="primary" size="default" @click="isShow = true">按钮</el-button>
+  <el-button type="primary" size="default" @click="isShow = true">打开dialog</el-button>
 
   <div class="i-logos-vue"></div>
 
@@ -16,8 +16,8 @@
 
 
   <!-- 测试pinia -->
-  <div>{{ globalStore.count }}</div>
-  <div>{{ globalStore.doubleCount() }}</div>
+  <div>{{ "globalStore.count" + globalStore.count }}</div>
+  <div>{{ "globalStore.doubleCount()" + globalStore.doubleCount() }}</div>
   <el-button type="primary" plain @click="globalStore.countAdd">+1</el-button>
 
   Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi odio incidunt provident est nobis natus nihil tempora
@@ -116,4 +116,5 @@ const globalStore = GlobalStore()
 </script> 
 
 <style lang='less' scoped>
+
 </style>

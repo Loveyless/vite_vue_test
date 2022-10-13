@@ -50,11 +50,11 @@ function sendMessage() {
 //连接聊天
 function connectWebsocket() {
   ws = useWebSocket(
-    `ws://localhost:8080/websocket/message`,
+    `ws://localhost:8080/websocket/all?token=${globalStore.token}`,
     // 接收到消息
     (evt) => {
       console.log('收到来自服务端的消息：', evt.data);
-      chatList.value.push(JSON.parse(evt.data))
+      chatList.value.unshift(JSON.parse(evt.data))
       // chatList.value.push(evt.data)
     }
   )

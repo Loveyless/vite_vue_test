@@ -5,7 +5,7 @@
 
 // import { onMounted,onUnmounted } from "vue";
 
-export function useEventListener(target: Window & typeof globalThis, event: string, callbakc:any) {
+export function useEventListener(target: Window & typeof globalThis, event: string, callbakc: any) {
   onMounted(() => {
     target.addEventListener(event, callbakc);
   });

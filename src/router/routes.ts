@@ -16,6 +16,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
  * @param name ==> 路由名称
  * @param redirect ==> 路由重定向
  * @param component ==> 路由组件
+ * 
  * @param meta ==> 路由元信息
  * @param meta.noRequireAuth ==> 是否不要权限验证 默认需要
  * @param meta.noKeepAlive ==> 是否不缓存该路由 默认缓存
@@ -50,10 +51,11 @@ const routes: Array<RouteRecordRaw> = [
       { path: "slot", name: "插槽", component: () => import("@v/Slot/FatherSlot.vue") },
       { path: "editor", name: "富文本", component: () => import("@v/Editor/index.vue") },
       { path: "list_wuhu", name: "动态菜单", component: () => import("@v/TestTemplate/ListWuhu!.vue") },
-      { path: "test_my_dialog", name: "pinia-setup和dialog组件", component: () => import("@v/TestDemo/index.vue") },
+      { path: "test_my_dialog", name: "pinia-setup和dialog组件", component: () => import("@v/TestMyDialog/index.vue") },
       { path: "provide_inject", name: "依赖注入", component: () => import("@v/Provide&Inject/index.vue") },
       { path: "composable", name: "组合式函数 异步组合式函数", component: () => import("@v/Composable/index.vue") },
       { path: "websocket", name: "websocket聊天", component: () => import("@v/Websocket/index.vue") },
+      { path: "directives", name: "自定义指令", component: () => import("@v/CustomDirectives/index.vue") },
     ],
   },
   {
