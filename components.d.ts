@@ -14,6 +14,7 @@ declare module '@vue/runtime-core' {
     copy: typeof import('./src/view/Home copy/index.vue')['default']
     CustomDirectives: typeof import('./src/view/CustomDirectives/index.vue')['default']
     DiaLog: typeof import('./src/components/DiaLog/index.vue')['default']
+    Draggable: typeof import('./src/view/Draggable/index.vue')['default']
     Editor: typeof import('./src/view/Editor/index.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCard: typeof import('element-plus/es')['ElCard']

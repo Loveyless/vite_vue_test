@@ -56,6 +56,7 @@ const routes: Array<RouteRecordRaw> = [
       { path: "composable", name: "组合式函数 异步组合式函数", component: () => import("@v/Composable/index.vue") },
       { path: "websocket", name: "websocket聊天", component: () => import("@v/Websocket/index.vue") },
       { path: "directives", name: "自定义指令", component: () => import("@v/CustomDirectives/index.vue") },
+      { path: "draggable", name: "拖拽实现", component: () => import("@v/Draggable/index.vue") },
     ],
   },
   {
