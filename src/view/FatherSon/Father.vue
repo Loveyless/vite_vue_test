@@ -5,7 +5,9 @@
 
     <div>father组件 红色边框</div>
 
-    <div>father的一个ref值count {{ count }}</div>
+    <div>father的一个ref值count {{ count }} 传给了子组件
+      <i-logos-vue @click="countAdd(1)" />
+    </div>
 
     <Son class="son_class" @count-add="countAdd" :count="count" />
 

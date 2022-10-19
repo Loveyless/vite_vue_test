@@ -15,6 +15,10 @@
 
   <br>
 
+  <el-button type="primary" size="default" v-debouncer="['click',log,1000]">防抖</el-button>
+  <el-button type="primary" size="default" v-debouncer2="{event:'click',fn:log,delay:1000}">防抖2</el-button>
+
+
   <img src="https://cdn.jsdelivr.net/gh/Loveyless/img-clouding/img/20221013173626.png" alt="">
   <img src="https://cdn.jsdelivr.net/gh/Loveyless/img-clouding/img/20221013173454.png" alt="">
 
@@ -25,6 +29,7 @@
 // 外部引入也可以
 import { vFocus } from "@/directives/vFocus";
 import { vFreedom } from "@/directives/vFreedom";
+import { vDebouncer, vDebouncer2 } from "@/directives/vDebouncer";
 
 // 1. 直接写函数 这会在 `mounted` 和 `updated` 时都调用
 // const vFocus = (el: any, binding: any) => {
@@ -64,6 +69,12 @@ const myDirective = {
 }
 // 钩子的参数 详见图片
 
+
+function log(name: 123) {
+  console.log(1, arguments);
+  console.log(2, this);
+  console.log(3, name);
+}
 
 
 

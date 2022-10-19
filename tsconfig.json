@@ -1,5 +1,6 @@
 {
-  //编译器选项
+  // 编译器选项
+  // https://cn.vuejs.org/guide/typescript/overview.html#configuring-tsconfigjson
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": true,
@@ -9,10 +10,10 @@
     "jsx": "preserve",
     "sourceMap": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": true, // 应当设置为 true，因为 Vite 使用 esbuild 来转译 TypeScript，并受限于单文件转译的限制。
     "esModuleInterop": true,
     "noImplicitAny": false, //隐式类型any的报错
-    "noImplicitThis":false, //this隐式类型为any时报错
+    "noImplicitThis": false, //this隐式类型为any时报错
     "alwaysStrict": false, //每个文件都是严格模式 "use strict"
     // "strictNullChecks": true, //严格的空检查
     // "strictFunctionTypes": true, //严格的函数类型检查
@@ -31,7 +32,7 @@
     ],
     //解析非相对模块名的基准目录
     "baseUrl": "./",
-    "paths": {
+    "paths": { // 如果你在构建工具中配置了路径解析别名，例如 @/* 这个别名被默认配置在了项目中，你需要通过 compilerOptions.paths 选项为 TypeScript 再配置一遍。
       "@/*": [
         "./src/*"
       ],

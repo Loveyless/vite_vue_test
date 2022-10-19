@@ -30,7 +30,7 @@ Boot.registerModule(markdownModule)
 const editorRef = shallowRef()
 
 // 内容 HTML
-const valueHtml = ref('')
+const valueHtml = ref<string>('')
 
 // mode
 const mode = "default"
@@ -203,7 +203,7 @@ const customPaste = (editor: any, event: any, callback: any) => {
 const props = withDefaults(defineProps<{ height?: string }>(), { height: '700px' })
 
 //更改编辑器html 字符串
-function setEditorHtml(html: string) {
+function setEditorHtml(html: string): void {
   valueHtml.value = html
 }
 

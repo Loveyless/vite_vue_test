@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <WangEditor ref="editorRef" height="700px"></WangEditor>
+    <WangEditor height="700px"></WangEditor>
     <div class="box">
       <el-button type="primary" plain @click="showHtml">预览</el-button>
       <el-button type="primary" plain @click="submitForm">发布</el-button>
@@ -9,15 +9,22 @@
 </template>
 
 <script lang='ts' setup name="wangeditor">
-// import WangEditor from "@/components/WangEditor/index.vue"
+// 有时，你可能需要为一个子组件添加一个模板引用，以便调用它公开的方法。举例来说，我们有一个 MyModal 子组件，它有一个打开模态框的方法：
+import WangEditor from "@/components/WangEditor/index.vue"
+const editorRef = ref<InstanceType<typeof WangEditor> | null>(null)
+
 const global = GlobalStore()
 
 //编辑器实例
-const editorRef = ref<any>('')
+// const editorRef = ref<any>('')
 
 //预览
 function showHtml() {
-  alert(editorRef.value.valueHtml)
+  alert(editorRef.value?.valueHtml)
+}
+
+function setHtml() {
+  editorRef.value?.setEditorHtml('修改后的内容')
 }
 
 onMounted(() => {
