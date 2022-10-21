@@ -70,46 +70,39 @@ onMounted(() => {
 
 <style lang='less' scoped>
 .content {
-  display: flex;
   position: relative;
+  display: flex;
   width: 100%;
   height: 500px;
-  background-color: #008c8c;
   overflow: hidden;
-
-
+  background-color: #008c8c;
   .list1 {
     position: absolute;
-    width: 100px;
-    background-color: yellow;
     display: flex;
-    transition: transform 0.5s;
+    width: 100px;
     height: 100%;
-
+    background-color: yellow;
+    transition: transform 0.5s;
     .menu {
-      width: 200px;
       flex: 1;
+      width: 200px;
       height: 100%;
       background-color: lightsteelblue;
     }
-
     .scorll {
       width: 10px;
       height: 100%;
-      background-color: #ccc;
       cursor: col-resize;
+      background-color: #cccccc;
     }
   }
-
   .list2 {
     position: absolute;
     width: 200px;
+    height: 100%;
     background-color: lightblue;
     transition: transform 0.5s;
-    height: 100%;
   }
-
-
   .main {
     flex: 1;
     background-color: lightcoral;

@@ -27,10 +27,10 @@ const countAdd = (num: number) => {
 <style lang='less' scoped>
 // 父元素的盒子css
 .father_box {
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   place-items: center;
+  border: 1px solid red;
 }
 
 // 传给子元素的css

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Toolbar style="border-bottom: 1px solid #ccc" :editor="editorRef" :defaultConfig="toolbarConfig" :mode="mode" />
+    <Toolbar style="border-bottom: 1px solid #cccccc;" :editor="editorRef" :defaultConfig="toolbarConfig" :mode="mode" />
     <Editor :style='{ height : props.height }' v-model="valueHtml" :defaultConfig="editorConfig" :mode="mode"
       @onCreated="handleCreated" @onChange="handleChange" @onDestroyed="handleDestroyed" @onFocus="handleFocus"
       @onBlur="handleBlur" @customAlert="customAlert" @customPaste="customPaste" />

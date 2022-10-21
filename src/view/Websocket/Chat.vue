@@ -11,7 +11,7 @@
         {{ item.username + " " + item.time + " " + item.message }}
       </div>
     </div>
-    <el-input style="margin-left:10px;width:500px;" v-model="msgData.message">
+    <el-input style="width: 500px;margin-left: 10px;" v-model="msgData.message">
       <template #suffix>
         <el-button type="primary" plain @click="sendMessage">发送</el-button>
       </template>
