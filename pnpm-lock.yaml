@@ -79,7 +79,6 @@ dependencies:
   nprogress: 0.2.0
   pinia: 2.0.17_j6bzmzd4ujpabbp5objtwxyjp4
   pinia-plugin-persistedstate: 2.1.1_pinia@2.0.17
-  prettier: 2.7.1
   qs: 6.11.0
   unplugin-vue-setup-extend-plus: 0.3.2_vite@3.0.3
   vconsole: 3.14.6
@@ -108,6 +107,7 @@ devDependencies:
   postcss: 8.4.18
   postcss-html: 1.5.0
   postcss-less: 6.0.0_postcss@8.4.18
+  prettier: 2.7.1
   stylelint: 14.14.0
   stylelint-config-html: 1.1.0_2wb2ag3ubchp7fdo72hd6rkeve
   stylelint-config-prettier: 9.0.3_stylelint@14.14.0
@@ -4332,6 +4332,7 @@ packages:
     resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
     engines: {node: '>=10.13.0'}
     hasBin: true
+    dev: true
 
   /prismjs/1.29.0:
     resolution: {integrity: sha512-Kx/1w86q/epKcmte75LNrEoT+lX8pBpavuAbvJWRXar7Hz8jrtF+e3vY751p0R8H9HdArwaCTNDDzHg/ScJK1Q==}

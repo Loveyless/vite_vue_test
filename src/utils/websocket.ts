@@ -1,19 +1,19 @@
 export function useWebSocket(url: string, onMessage: (data: any) => void) {
-  const ws = new WebSocket(url);
+	const ws = new WebSocket(url);
 
-  ws.onopen = (e) => {
-    console.log("open", e);
-  };
+	ws.onopen = e => {
+		console.log("open", e);
+	};
 
-  ws.onmessage = onMessage;
+	ws.onmessage = onMessage;
 
-  ws.onclose = (e) => {
-    console.log("close", e);
-  };
+	ws.onclose = e => {
+		console.log("close", e);
+	};
 
-  ws.onerror = (e) => {
-    console.log("error", e);
-  };
+	ws.onerror = e => {
+		console.log("error", e);
+	};
 
-  return ws;
+	return ws;
 }

@@ -1,15 +1,10 @@
 <template>
-  <slot :x="x" :y="y" />
+	<slot :x="x" :y="y" />
 </template>
 
-<script lang='ts' setup>
-
+<script lang="ts" setup>
 //hooks XY
-const { x, y } = useMouse()
-
-
-
-
+const { x, y } = useMouse();
 
 // 这里的获取坐标抽离出去换了 hooks
 
@@ -23,5 +18,4 @@ const { x, y } = useMouse()
 
 // onMounted(() => window.addEventListener('mousemove', update))
 // onUnmounted(() => window.removeEventListener('mousemove', update))
-
-</script> 
+</script>

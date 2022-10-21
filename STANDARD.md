@@ -13,7 +13,7 @@
 ### 1、下载安装 prettier：
 
 ```text
-npm install prettier
+npm install prettier -D
 ```
 
 ### 2、安装 Vscode 插件（Prettier）：

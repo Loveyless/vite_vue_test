@@ -7,7 +7,10 @@
 		"dev": "vite",
 		"build": "vue-tsc --noEmit && vite build",
 		"preview": "vite preview",
+		"lint:eslint": "eslint --fix --ext .js,.ts,.vue ./src",
+		"lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,ts,json,tsx,css,less,scss,vue,html,md}\"",
 		"lint:style": "stylelint \"./**/*.{css,less,vue,html}\" --fix",
+		"lint:lint-staged": "lint-staged",
 		"prepare": "husky install"
 	},
 	"config": {
@@ -29,7 +32,6 @@
 		"nprogress": "^0.2.0",
 		"pinia": "^2.0.17",
 		"pinia-plugin-persistedstate": "^2.1.1",
-		"prettier": "^2.7.1",
 		"qs": "^6.11.0",
 		"unplugin-vue-setup-extend-plus": "^0.3.2",
 		"vconsole": "^3.14.6",
@@ -58,6 +60,7 @@
 		"postcss": "^8.4.18",
 		"postcss-html": "^1.5.0",
 		"postcss-less": "^6.0.0",
+		"prettier": "^2.7.1",
 		"stylelint": "^14.14.0",
 		"stylelint-config-html": "^1.1.0",
 		"stylelint-config-prettier": "^9.0.3",

@@ -4,7 +4,7 @@ import App from "./App.vue";
 
 import router from "@/router";
 
-import pinia from "@/store"
+import pinia from "@/store";
 
 //vconsole
 import Vconsole from "vconsole";
@@ -17,19 +17,18 @@ import "element-plus/dist/index.css";
 //element-plus-icon 如果您正在使用CDN引入，请删除下面一行。
 import * as ElementPlusIconsVue from "@element-plus/icons-vue";
 
-
 const app = createApp(App);
 
 //element-plus-icon
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-  app.component(key, component);
+	app.component(key, component);
 }
 
 //development
 //production
 if (import.meta.env.VITE_VCONSOLE == true) {
-  let vConsole: any = new Vconsole();
-  app.use(vConsole);
+	let vConsole: any = new Vconsole();
+	app.use(vConsole);
 }
 
 app.use(pinia).use(router).mount("#app");

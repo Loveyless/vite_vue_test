@@ -35,7 +35,15 @@ module.exports = {
 		"no-irregular-whitespace": "off", // 禁止不规则的空白
 
 		// typeScript (https://typescript-eslint.io/rules)
-		"@typescript-eslint/no-unused-vars": "error", // 禁止定义未使用的变量
+		// "@typescript-eslint/no-unused-vars": "error", // 禁止定义未使用的变量
+		"@typescript-eslint/no-unused-vars": [
+			"warn",
+			{
+				argsIgnorePattern: "^_", // 如果您的变量未使用，只需添加下划线_ctx，ESLint将忽略它
+				varsIgnorePattern: "^_",
+				caughtErrorsIgnorePattern: "^_"
+			}
+		],
 		"@typescript-eslint/no-inferrable-types": "off", // 可以轻松推断的显式类型可能会增加不必要的冗长
 		"@typescript-eslint/no-namespace": "off", // 禁止使用自定义 TypeScript 模块和命名空间。
 		"@typescript-eslint/no-explicit-any": "off", // 禁止使用 any 类型

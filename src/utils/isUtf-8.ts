@@ -4,19 +4,19 @@
  * @return:
  */
 function readFile(file: any) {
-  return new Promise((resolve: any, reject: any) => {
-    const reader: any = new FileReader();
-    reader.onload = function (evt: any) {
-      resolve(evt.target.result);
-    };
-    reader.readAsArrayBuffer(file);
-  });
+	return new Promise((resolve: any, _reject: any) => {
+		const reader: any = new FileReader();
+		reader.onload = function (evt: any) {
+			resolve(evt.target.result);
+		};
+		reader.readAsArrayBuffer(file);
+	});
 }
 
 type isUtf8Type = (Fild: any) => Promise<boolean>;
 
 export const isUtf8: isUtf8Type = async function (file: any) {
-  const res: any = await readFile(file);
-  const firstCode: any = new Uint8Array(res)[0];
-  return firstCode >= 33 && firstCode <= 126;
+	const res: any = await readFile(file);
+	const firstCode: any = new Uint8Array(res)[0];
+	return firstCode >= 33 && firstCode <= 126;
 };

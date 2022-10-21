@@ -1,89 +1,89 @@
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  color: rgb(255 255 255 / 87%);
-  background-color: #242424;
+	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 24px;
+	color: rgb(255 255 255 / 87%);
+	background-color: #242424;
 
-  /* 可选的配色方案，由系统来决定。官方文档上虽然说是优先选择，实测两种顺序没有区别 */
-  color-scheme: light dark;
+	/* 可选的配色方案，由系统来决定。官方文档上虽然说是优先选择，实测两种顺序没有区别 */
+	color-scheme: light dark;
 
-  /* 控制浏览器可以合成（synthesize）哪些缺失的字体，粗体或斜体。 */
+	/* 控制浏览器可以合成（synthesize）哪些缺失的字体，粗体或斜体。 */
 
-  /* 最好为none */
-  font-synthesis: none;
+	/* 最好为none */
+	font-synthesis: none;
 
-  /* 文本的渲染规则 */
+	/* 文本的渲染规则 */
 
-  /* 浏览器在绘制文本时将着重考虑易读性，而不是渲染速度和几何精度.它会使字间距和连字有效。该属性值在移动设备上会造成比较明显的性能问题。 */
+	/* 浏览器在绘制文本时将着重考虑易读性，而不是渲染速度和几何精度.它会使字间距和连字有效。该属性值在移动设备上会造成比较明显的性能问题。 */
 
-  /* text-rendering: optimizeLegibility; */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-size-adjust: 100%;
+	/* text-rendering: optimizeLegibility; */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-size-adjust: 100%;
 }
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+	font-weight: 500;
+	color: #646cff;
+	text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+	color: #535bf2;
 }
 html,
 body {
-  padding: 0;
-  margin: 0;
+	padding: 0;
+	margin: 0;
 
-  // display: flex;
+	// display: flex;
 
-  /* flex或者grid的简写属性(例如：align-items 和 justify-items 属性) 。 */
+	/* flex或者grid的简写属性(例如：align-items 和 justify-items 属性) 。 */
 
-  /* 以后需要定义水平垂直居中的盒子就不需要再 justify-items: center 注意是(justify-items) 和 align-items: center 了，直接一行搞定，看起来更加专业 */
-  // place-items: center;
-  // min-width: 320px;
-  // min-height: 100vh;
+	/* 以后需要定义水平垂直居中的盒子就不需要再 justify-items: center 注意是(justify-items) 和 align-items: center 了，直接一行搞定，看起来更加专业 */
+	// place-items: center;
+	// min-width: 320px;
+	// min-height: 100vh;
 }
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+	font-size: 3.2em;
+	line-height: 1.1;
 }
 button {
-  font-family: inherit;
-  font-size: 1em;
-  background-color: #008c8c;
-  border: 1px solid #535353;
-  border-radius: 8px;
-  transition: border-color 0.25s;
+	font-family: inherit;
+	font-size: 1em;
+	background-color: #008c8c;
+	border: 1px solid #535353;
+	border-radius: 8px;
+	transition: border-color 0.25s;
 }
 button:hover {
-  // background-color: #646cff;
+	// background-color: #646cff;
 }
 button:focus,
 button:focus-visible {
-  // outline: 4px auto -webkit-focus-ring-color;
+	// outline: 4px auto -webkit-focus-ring-color;
 }
 .card {
-  padding: 2em;
+	padding: 2em;
 }
 #app {
-  max-width: 1450px;
-  padding: 0;
-  margin: 0 auto;
-  text-align: center;
+	max-width: 1450px;
+	padding: 0;
+	margin: 0 auto;
+	text-align: center;
 }
 
 /* CSS 媒体查询连接到系统设置。当检测到 light 主题设置时 开启 */
 @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    color: black;
-  }
+	:root {
+		color: #213547;
+		background-color: #ffffff;
+	}
+	a:hover {
+		color: #747bff;
+	}
+	button {
+		color: black;
+	}
 }

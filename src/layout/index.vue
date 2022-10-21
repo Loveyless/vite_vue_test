@@ -1,47 +1,43 @@
 <template>
-  <div class="common-layout">
-    <el-container>
+	<div class="common-layout">
+		<el-container>
+			<el-header>
+				<Header />
+			</el-header>
 
-      <el-header>
-        <Header />
-      </el-header>
-
-
-      <el-main>
-        <router-view v-slot="{ Component, route }">
-          <Transition appear name="fade-transform" mode="out-in">
-            <keep-alive :exclude="['/xxx']">
-              <div :key="$route.path">
-                <component :is="Component" :key="route.path" />
-              </div>
-            </keep-alive>
-          </Transition>
-        </router-view>
-      </el-main>
-      
-    </el-container>
-  </div>
+			<el-main>
+				<router-view v-slot="{ Component, route }">
+					<Transition appear name="fade-transform" mode="out-in">
+						<keep-alive :exclude="['/xxx']">
+							<div :key="$route.path">
+								<component :is="Component" :key="route.path" />
+							</div>
+						</keep-alive>
+					</Transition>
+				</router-view>
+			</el-main>
+		</el-container>
+	</div>
 </template>
 
-<script lang='ts' setup name="layout">
+<script lang="ts" setup name="layout">
 // import Header from "./Header.vue";
+</script>
 
-</script> 
-
-<style lang='less' scoped>
+<style lang="less" scoped>
 /* fade-transform */
 .fade-transform-leave-active,
 .fade-transform-enter-active {
-  transition: all 0.2s;
+	transition: all 0.2s;
 }
 .fade-transform-enter-from {
-  opacity: 0;
-  transition: all 0.2s;
-  transform: translateX(-30px);
+	opacity: 0;
+	transition: all 0.2s;
+	transform: translateX(-30px);
 }
 .fade-transform-leave-to {
-  opacity: 0;
-  transition: all 0.2s;
-  transform: translateX(30px);
+	opacity: 0;
+	transition: all 0.2s;
+	transform: translateX(30px);
 }
 </style>
