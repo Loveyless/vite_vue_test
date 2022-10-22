@@ -1,3 +1,4 @@
+import path from "node:path";
 //vite/vue插件
 import vue from "@vitejs/plugin-vue";
 
@@ -24,10 +25,13 @@ import IconsResolver from "unplugin-icons/resolver";
 import Unocss from "unocss/vite";
 // 原子化css 第一个是工具类预设，第二个是属性化模式支持，第三个是icon支持 还有别的预设
 import { presetWind, presetAttributify, presetIcons } from "unocss";
-import unocssRule from "../uno.config";
+import _unocssRule from "../uno.config";
 
 // 使vue脚本设置语法支持name属性 https://github.com/chenxch/unplugin-vue-setup-extend-plus
 import vueSetupExtend from "unplugin-vue-setup-extend-plus/vite";
+
+// @intlify/vite-plugin-vue-i18n  https://github.com/intlify/bundle-tools/tree/main/packages/vite-plugin-vue-i18n
+import vueI18n from "@intlify/vite-plugin-vue-i18n";
 
 // 点哪里打开代码哪里 https://github.com/webfansplz/vite-plugin-vue-inspector 我的vscode没有shell 用不了操
 // import Inspector from "vite-plugin-vue-inspector";
@@ -37,101 +41,112 @@ import progress from "vite-plugin-progress";
 import removeConsole from "vite-plugin-remove-console";
 
 export default [
-  vue(),
-  Unocss({
-    presets: [
-      //wind默认预设
-      presetWind(),
-      presetAttributify(),
-      presetIcons(),
-    ],
-    // rules: unocssRule as any, //不用自定义预设
-  }),
-  vueSetupExtend({
-    mode: "relativeName", //自动读取相对路径名
-  }),
-  ViteImages({
-    dirs: ["src/assets/imgs"],
-    // dirs: ["src/assets/imgs", "src/assets/xxx"], //可以配多个
-    extensions: ["jpg", "jpeg", "png", "svg", "webp"],
-  }),
-  Icons({
-    autoInstall: true,
-    compiler: "vue3",
-  }),
-  // Inspector({
-  //   // 我的编辑器没有shell 用不了 哈哈 默认按键ctrl+shift
-  //   enabled: false,
-  // }),
-  AutoImport({
-    dts: true,
-    include: [
-      /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
-      /\.vue$/,
-      /\.vue\?vue/, // .vue
-      /\.md$/, // .md
-    ],
-    // global imports to register
-    imports: [
-      // presets
-      "vue",
-      "vue-router",
-      "pinia",
-      // custom 这里官网有很多例子 还可以去看
-      {
-        // axios: [
-        //   // default imports
-        //   ["default", "axios"], // import { default as axios } from 'axios',
-        // ],
-      },
-    ],
-    // Auto import for module exports under directories
-    // by default it only scan one level of modules under the directory
-    // 这个好像是导出自己的模块
-    dirs: [
-      // "./router/index.ts",
-      // './hooks',
-      // './composables' // only root modules
-      // './composables/**', // all nested modules
-      // ...
-      //注意 这里的hooks都不能用默认导出 因为没名字
-      "./src/utils/**", // all nested modules
-      "./src/axios",
-      "./src/store",
-      "./src/router",
-    ],
-    resolvers: [
-      // IconsResolver() //这个去Components里写
-      ElementPlusResolver(),
-    ],
-  }),
-  Components({
-    // enabled by default if `typescript` is installed
-    dts: true,
-    // relative paths to the directory to search for components.
-    dirs: ["src/layout", "src/view", "src/components"],
-    // RouterLink RouterView 是全局的 但是是ts不友好的所以这里声明一下
-    types: [
-      {
-        from: "vue-router",
-        names: ["RouterLink", "RouterView"],
-      },
-    ],
-    resolvers: [
-      IconsResolver({
-        // 非前缀模式 写icon的时候不用前缀
-        // 会和element-plus的icon冲突
-        // prefix: false,
-      }),
-      ElementPlusResolver(),
-    ],
-  }),
-  progress({
-    format: "building [:bar] :percent",
-    total: 200,
-    width: 60,
-    complete: "=",
-    incomplete: "",
-  }),
-  removeConsole(),
+	vue(),
+	Unocss({
+		presets: [
+			//wind默认预设
+			presetWind(),
+			presetAttributify(),
+			presetIcons()
+		]
+		// rules: unocssRule as any, //不用自定义预设
+	}),
+	vueSetupExtend({
+		mode: "relativeName" //自动读取相对路径名
+	}),
+	ViteImages({
+		dirs: ["src/assets/imgs"],
+		// dirs: ["src/assets/imgs", "src/assets/xxx"], //可以配多个
+		extensions: ["jpg", "jpeg", "png", "svg", "webp"]
+	}),
+	Icons({
+		autoInstall: true,
+		compiler: "vue3"
+	}),
+	// Inspector({
+	//   // 我的编辑器没有shell 用不了 哈哈 默认按键ctrl+shift
+	//   enabled: false,
+	// }),
+	AutoImport({
+		dts: true,
+		include: [
+			/\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+			/\.vue$/,
+			/\.vue\?vue/, // .vue
+			/\.md$/ // .md
+		],
+		// global imports to register
+		imports: [
+			// presets
+			"vue",
+			"vue-router",
+			"vue-i18n",
+			"pinia",
+			// custom 这里官网有很多例子 还可以去看
+			{
+				// axios: [
+				//   // default imports
+				//   ["default", "axios"], // import { default as axios } from 'axios',
+				// ],
+			}
+		],
+		// Auto import for module exports under directories
+		// by default it only scan one level of modules under the directory
+		// 这个好像是导出自己的模块
+		dirs: [
+			// "./router/index.ts",
+			// './hooks',
+			// './composables' // only root modules
+			// './composables/**', // all nested modules
+			// ...
+			//注意 这里的hooks都不能用默认导出 因为没名字
+			"./src/utils/**", // all nested modules
+			"./src/axios",
+			"./src/store",
+			"./src/router"
+		],
+		resolvers: [
+			// IconsResolver() //这个去Components里写
+			ElementPlusResolver()
+		]
+	}),
+	Components({
+		// enabled by default if `typescript` is installed
+		dts: true,
+		// relative paths to the directory to search for components.
+		dirs: ["src/layout", "src/view", "src/components"],
+		// RouterLink RouterView 是全局的 但是是ts不友好的所以这里声明一下
+		types: [
+			{
+				from: "vue-router",
+				names: ["RouterLink", "RouterView"]
+			}
+		],
+		resolvers: [
+			IconsResolver({
+				// 非前缀模式 写icon的时候不用前缀
+				// 会和element-plus的icon冲突
+				// prefix: false,
+			}),
+			ElementPlusResolver()
+		]
+	}),
+	progress({
+		format: "building [:bar] :percent",
+		total: 200,
+		width: 60,
+		complete: "=",
+		incomplete: ""
+	}),
+	vueI18n({
+		// if you want to use Vue I18n Legacy API, you need to set `compositionOnly: false`
+		// compositionOnly: false,
+		runtimeOnly: true,
+		compositionOnly: true,
+
+		// you need to set i18n resource including paths !
+		// include: resolve(dirname(fileURLToPath(import.meta.url)), "./src/i18n/**")
+		include: [path.resolve(__dirname, "./src/i18n/**")]
+	}),
+	removeConsole()
 ] as any;

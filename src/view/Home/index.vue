@@ -17,8 +17,8 @@
 
 <style lang="less" scoped>
 .logo {
-	height: 6em;
 	padding: 1.5em;
+	height: 6em;
 	will-change: filter;
 }
 .logo:hover {

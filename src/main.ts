@@ -14,8 +14,11 @@ import "uno.css";
 
 // element css
 import "element-plus/dist/index.css";
-//element-plus-icon 如果您正在使用CDN引入，请删除下面一行。
+// element-plus-icon 如果您正在使用CDN引入，请删除下面一行。
 import * as ElementPlusIconsVue from "@element-plus/icons-vue";
+
+// i18n
+import { i18n } from "@/i18n";
 
 const app = createApp(App);
 
@@ -31,4 +34,4 @@ if (import.meta.env.VITE_VCONSOLE == true) {
 	app.use(vConsole);
 }
 
-app.use(pinia).use(router).mount("#app");
+app.use(pinia).use(i18n).use(router).mount("#app");

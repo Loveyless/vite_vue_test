@@ -10,7 +10,8 @@
 		<div class="list2" ref="list2">list2</div>
 
 		<div class="main">
-			<el-button type="primary" plain @click="btn">弹出</el-button>
+			<el-button type="primary" plain @click="btn">{{ $t("button.content") }}</el-button>
+			<el-button type="primary" plain @click="changeLang">切换语言</el-button>
 		</div>
 	</div>
 
@@ -24,6 +25,7 @@
 </template>
 
 <script lang="ts" setup>
+const i18n = useI18n();
 const list1IsView = ref<boolean>(false);
 const list1 = ref<HTMLDivElement>();
 const list2 = ref<HTMLDivElement>();
@@ -60,6 +62,12 @@ function btn() {
 onMounted(() => {
 	btn();
 });
+
+// 切换语言
+function changeLang() {
+	i18n.locale.value = i18n.locale.value == "zh" ? "en" : "zh";
+	alert(i18n.t("button.content"));
+}
 </script>
 
 <style lang="less" scoped>

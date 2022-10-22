@@ -64,3 +64,6 @@ export default pinia;
 //     },
 //   },
 // });
+
+// 热更新
+if (import.meta.hot) import.meta.hot.accept(acceptHMRUpdate(GlobalStore, import.meta.hot));
