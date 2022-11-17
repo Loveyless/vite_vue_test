@@ -51,13 +51,13 @@ const routes: Array<RouteRecordRaw> = [
 			{ path: "slot", name: "插槽", component: () => import("@v/Slot/FatherSlot.vue") },
 			{ path: "editor", name: "富文本", component: () => import("@v/Editor/index.vue") },
 			{ path: "list_wuhu", name: "动态菜单", component: () => import("@/view/TestTemplate/index.vue") },
-			{ path: "test_my_dialog", name: "pinia-setup和dialog组件", component: () => import("@v/TestMyDialog/index.vue") },
+			{ path: "test_my_dialog", name: "pinia-setup和dialog组件", component: () => import("@v/TestMyComponents/index.vue") },
 			{ path: "provide_inject", name: "依赖注入", component: () => import("@v/Provide&Inject/index.vue") },
 			{ path: "composable", name: "组合式函数 异步组合式函数", component: () => import("@v/Composable/index.vue") },
 			{ path: "websocket", name: "websocket聊天", component: () => import("@v/Websocket/index.vue") },
 			{ path: "directives", name: "自定义指令", component: () => import("@v/CustomDirectives/index.vue") },
 			{ path: "draggable", name: "拖拽实现", component: () => import("@v/Draggable/index.vue") },
-			{ path: "test_template", name: "测试组件", component: () => import("@v/TestTemplate/index.vue") }
+			{ path: "test_template", name: "测试自己封装的组件", component: () => import("@v/TestMyComponents/index.vue") }
 		]
 	},
 	{

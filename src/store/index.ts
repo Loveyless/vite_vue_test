@@ -26,6 +26,7 @@ export const GlobalStore = defineStore(
 			}, 1000);
 		}
 
+		//测试
 		let count = ref<number>(0);
 		function countAdd(): void {
 			count.value++;

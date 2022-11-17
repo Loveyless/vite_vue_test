@@ -24,6 +24,7 @@ declare module "@vue/runtime-core" {
 		ElContainer: typeof import("element-plus/es")["ElContainer"];
 		ElDatePicker: typeof import("element-plus/es")["ElDatePicker"];
 		ElDialog: typeof import("element-plus/es")["ElDialog"];
+		ElDivider: typeof import("element-plus/es")["ElDivider"];
 		ElForm: typeof import("element-plus/es")["ElForm"];
 		ElFormItem: typeof import("element-plus/es")["ElFormItem"];
 		ElHeader: typeof import("element-plus/es")["ElHeader"];
@@ -47,7 +48,11 @@ declare module "@vue/runtime-core" {
 		"ListWuhu!": typeof import("./src/view/TestTemplate/ListWuhu!.vue")["default"];
 		Login: typeof import("./src/view/login/index.vue")["default"];
 		MouseTracker: typeof import("./src/view/Slot/MouseTracker.vue")["default"];
+		MyDiaLog: typeof import("./src/components/MyDiaLog/index.vue")["default"];
 		MyImg: typeof import("./src/components/ErrorImage/MyImg.vue")["default"];
+		MyRate: typeof import("./src/components/MyRate/index.vue")["default"];
+		MyRate2: typeof import("./src/components/MyRate2/index.vue")["default"];
+		MyTransition: typeof import("./src/components/MyTransition/index.vue")["default"];
 		"Provide&Inject": typeof import("./src/view/Provide&Inject/index.vue")["default"];
 		RouterLink: typeof import("vue-router")["RouterLink"];
 		RouterView: typeof import("vue-router")["RouterView"];
@@ -55,6 +60,7 @@ declare module "@vue/runtime-core" {
 		Son: typeof import("./src/view/FatherSon/Son.vue")["default"];
 		SonSlot: typeof import("./src/view/Slot/SonSlot.vue")["default"];
 		TestDemo: typeof import("./src/view/TestDemo/index.vue")["default"];
+		TestMyComponents: typeof import("./src/view/TestMyComponents/index.vue")["default"];
 		TestMyDialog: typeof import("./src/view/TestMyDialog/index.vue")["default"];
 		TestTemplate: typeof import("./src/view/TestTemplate/index.vue")["default"];
 		Undefined: typeof import("./src/layout/index.vue")["default"];

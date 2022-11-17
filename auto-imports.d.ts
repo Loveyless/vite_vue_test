@@ -6,6 +6,7 @@ declare global {
 	const EffectScope: typeof import("vue")["EffectScope"];
 	const Global: typeof import("./src/store/index")["Global"];
 	const GlobalStore: typeof import("./src/store/index")["GlobalStore"];
+	const RandomNumBoth: typeof import("./src/utils/randomNum")["RandomNumBoth"];
 	const acceptHMRUpdate: typeof import("pinia")["acceptHMRUpdate"];
 	const computed: typeof import("vue")["computed"];
 	const config: typeof import("./src/axios/config")["default"];
