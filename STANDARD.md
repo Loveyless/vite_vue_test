@@ -1,5 +1,9 @@
 # 项目规范文档 📚
 
+本文件源地址
+
+https://github.com/HalseySpicy/Geeker-Admin/blob/master/STANDARD.md
+
 ## 一、项目文件、组件命名规范
 
 > **完全采用 Vue 官方推荐的风格指南，请务必查看 💢**

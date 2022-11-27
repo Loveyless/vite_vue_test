@@ -1,4 +1,9 @@
-export function useWebSocket(url: string, onMessage: (data: any) => void) {
+/**
+ * @param url 链接链接
+ * @param onMessage 当发送消息时
+ * @return ws 返回websocket实例
+ */
+export function useWebSocket(url: string, onMessage: (data: any) => any) {
 	const ws = new WebSocket(url);
 
 	ws.onopen = e => {
