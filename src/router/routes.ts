@@ -16,7 +16,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
  * @param name ==> 路由名称
  * @param redirect ==> 路由重定向
  * @param component ==> 路由组件
- * 
+ *
  * @param meta ==> 路由元信息
  * @param meta.noRequireAuth ==> 是否不要权限验证 默认需要
  * @param meta.noKeepAlive ==> 是否不缓存该路由 默认缓存
@@ -57,6 +57,7 @@ const routes: Array<RouteRecordRaw> = [
       { path: "websocket", name: "websocket聊天", component: () => import("@v/Websocket/index.vue") },
       { path: "directives", name: "自定义指令", component: () => import("@v/CustomDirectives/index.vue") },
       { path: "draggable", name: "拖拽实现", component: () => import("@v/Draggable/index.vue") },
+      { path: "freestyle", name: "即兴发挥", component: () => import("@v/Freestyle/index.vue") },
     ],
   },
   {

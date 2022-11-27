@@ -18,7 +18,7 @@
           </Transition>
         </router-view>
       </el-main>
-      
+
     </el-container>
   </div>
 </template>
