@@ -1,6 +1,6 @@
 ## 项目规范文档
 
-STANDARD.md
+https://github.com/Loveyless/vite_vue_test/blob/standard/STANDARD.md
 
 ## 探索插件
 
