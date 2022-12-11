@@ -57,7 +57,8 @@ const routes: Array<RouteRecordRaw> = [
 			{ path: "websocket", name: "websocket聊天", component: () => import("@v/Websocket/index.vue") },
 			{ path: "directives", name: "自定义指令", component: () => import("@v/CustomDirectives/index.vue") },
 			{ path: "draggable", name: "拖拽实现", component: () => import("@v/Draggable/index.vue") },
-			{ path: "test_template", name: "测试自己封装的组件", component: () => import("@v/TestMyComponents/index.vue") }
+			{ path: "test_template", name: "测试自己封装的组件", component: () => import("@v/TestMyComponents/index.vue") },
+			{ path: "vuedraggable", name: "拖拽库vuedraggable", component: () => import("@v/VueDraggable/index.vue") }
 		]
 	},
 	{
