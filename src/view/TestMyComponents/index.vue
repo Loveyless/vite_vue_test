@@ -3,18 +3,19 @@
 
 	<el-divider />
 
+	<MyRate v-model="rate"></MyRate>
 	<el-button type="primary" size="default" @click="rate++">增加星星</el-button>
 	<el-button type="primary" size="default" @click="rate--">减少星星</el-button>
+	<div>星级:{{ rate }}</div>
 
-	<!-- 自己写的评分 -->
-	<div>rate:{{ rate }}|rate2:{{ rate2 }}</div>
-	<MyRate v-model="rate"></MyRate>
+	<el-divider />
 
 	<MyRate2 v-model="rate2">
 		<template #default>
 			<div>课程评分</div>
 		</template>
 	</MyRate2>
+	<div>星级:{{ rate2 }}</div>
 
 	<el-divider />
 
